@@ -1,0 +1,18 @@
+version: "2"
+services:
+  hello-world:
+    image: "node:10.15.3-alpine"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - "8080:80"
+    command: "npm run start-hello-world"
+  mysql-demo:
+    image: "node:10.15.3-alpine"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - "8080:80"
+    command: "npm run start-mysql-demo"
