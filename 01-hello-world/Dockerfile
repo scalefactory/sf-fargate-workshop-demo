@@ -1,7 +1,7 @@
 FROM node:10.15.3-alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /home/node/app
 
 # Install app dependencies
 COPY package*.json ./
@@ -11,6 +11,6 @@ RUN npm install
 # Copy app source
 COPY . .
 
-EXPOSE 80/tcp
+EXPOSE 3000/tcp
 
-CMD npm run start-hello-world
+CMD npm start

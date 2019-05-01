@@ -1,0 +1,15 @@
+
+<h1 class="cover-heading">{{title}}</h1>
+<p class="lead">This is the {{title}} application</p>
+
+<p>
+The S3 bucket contains the following files
+</p>
+
+<ul>
+    {{#each items}}
+        <li>
+            <a href="/files/{{this}}">{{this}}</a>
+        </li>
+    {{/each}}
+</ul>
