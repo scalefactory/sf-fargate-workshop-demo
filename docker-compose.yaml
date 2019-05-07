@@ -6,7 +6,7 @@ services:
     volumes:
       - ./01-hello-world:/home/node/app
     ports:
-      - "8080:3000"
+      - "8080:80"
     command: "npm start"
   s3-list:
     image: "node:10.15.3-alpine"
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./02-s3-list:/home/node/app
     ports:
-      - "8081:3000"
+      - "8081:80"
     command: "npm start"
     environment:
       - AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
