@@ -11,6 +11,6 @@ RUN npm install
 # Copy app source
 COPY . .
 
-EXPOSE 3000/tcp
+EXPOSE 80/tcp
 
 CMD npm start
