@@ -44,7 +44,7 @@ docker build -t sf-fargate-workshop-demo:s3-list -f 02-s3-list/Dockerfile 02-s3-
 These images can be pushed to the workshop ECR by running
 
 ```sh
-$(aws --profile sf-workshop ecr get-login --no-include-email --region eu-west-1)
+$(aws ecr get-login --no-include-email --region eu-west-1)
 docker tag sf-fargate-workshop-demo:hello-world 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:hello-world
 docker tag sf-fargate-workshop-demo:s3-list 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:s3-list
 docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:hello-world
