@@ -8,7 +8,7 @@ const s3 = new AWS.S3();
 router.get('/:file', function(req, res, next) {
   console.log(req.params)
   var params = {
-    Bucket: 'sf-fargate-workshop-demo',
+    Bucket: process.env.BUCKET_NAME,
     Key: req.params.file
   };
 

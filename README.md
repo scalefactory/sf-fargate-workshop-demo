@@ -59,4 +59,4 @@ Run `npm install` inside both of the applications
 docker-compose up
 ```
 
-Access the applications at http://localhost:8080 and http://localhost8081
+Access the applications at http://localhost:8080 and http://localhost:8081
