@@ -13,4 +13,6 @@ WORKDIR /home/node/app
 COPY --from=builder /home/node/app ./
 EXPOSE 80/tcp
 
+LABEL org.opencontainers.image.vendor="The Scale Factory"
+
 CMD npm start

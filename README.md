@@ -26,7 +26,7 @@ A NodeJS express application to print 'Hello World!'
 Build this image by running
 
 ```sh
-docker build -t sf-fargate-workshop-demo:hello-world -f 01-hello-world/Dockerfile 01-hello-world
+docker build -t sf-fargate-workshop-hello-world:latest -f 01-hello-world/Dockerfile 01-hello-world
 ```
 
 ### S3 List
@@ -38,15 +38,15 @@ _Note_: This container requires permissions to read the `sf-fargate-workshop-dem
 Build this image by running
 
 ```sh
-docker build -t sf-fargate-workshop-demo:s3-list -f 02-s3-list/Dockerfile 02-s3-list
+docker build -t sf-fargate-workshop-s3-list:latest -f 02-s3-list/Dockerfile 02-s3-list
 ```
 
-These images can be pushed to the workshop ECR by running
+These images can be pushed to the public ECR by running
 
 ```sh
 $(aws ecr get-login --no-include-email --region eu-west-1)
-docker tag sf-fargate-workshop-demo:hello-world 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:hello-world
-docker tag sf-fargate-workshop-demo:s3-list 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:s3-list
-docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:hello-world
-docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:s3-list
+docker tag sf-fargate-workshop-hello-world:latest 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-hello-world:latest
+docker tag sf-fargate-workshop-s3-list:latest 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-s3-list:latest
+docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-hello-world:latest
+docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-s3-list:latest
 ```
