@@ -50,13 +50,3 @@ docker tag sf-fargate-workshop-demo:s3-list 374061437266.dkr.ecr.eu-west-1.amazo
 docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:hello-world
 docker push 374061437266.dkr.ecr.eu-west-1.amazonaws.com/sf-fargate-workshop-demo:s3-list
 ```
-
-### Development
-
-Run `npm install` inside both of the applications
-
-```sh
-docker-compose up
-```
-
-Access the applications at http://localhost:8080 and http://localhost:8081
