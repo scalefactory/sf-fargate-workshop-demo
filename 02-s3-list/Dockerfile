@@ -1,19 +1,17 @@
-FROM node:10.15.3-alpine
-
-# Create app directory
+FROM docker.io/library/node:23-alpine as builder
 WORKDIR /home/node/app
+COPY ["package.json", "package-lock.json", "./"]
+RUN ["npm", "install"]
+COPY ["public", "./public/"]
+COPY ["routes", "./routes/"]
+COPY ["views", "./views/"]
+COPY ["bin", "./bin/"]
+COPY ["app.js", "./"]
 
-# Install app dependencies
-COPY package*.json ./
-
-RUN npm install
-
-# Copy app source
-COPY . .
-
-# Set bucket name (to replace)
-ENV BUCKET_NAME=replace_me
-
+FROM docker.io/library/node:23-alpine
+WORKDIR /home/node/app
+COPY --from=builder /home/node/app ./
 EXPOSE 80/tcp
 
+ENV BUCKET_NAME=replace_me
 CMD npm start
