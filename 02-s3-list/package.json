@@ -1,0 +1,19 @@
+{
+  "name": "02-s3-list",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.726.0",
+    "cookie-parser": "~1.4.5",
+    "debug": "~4.1.1",
+    "express": "~4.17.1",
+    "hbs": "~4.1.1",
+    "http-errors": "~1.8.0",
+    "morgan": "~1.10.0",
+    "handlebars": ">=4.5.3",
+    "minimist": ">=1.2.5"
+  }
+}
