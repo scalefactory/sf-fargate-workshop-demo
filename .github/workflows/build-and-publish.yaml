@@ -1,0 +1,50 @@
+name: Deploy to ECR
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+      with:
+          registry-type: public
+
+    - name: hello-world - Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: public.ecr.aws
+        ECR_REPOSITORY: z8e9d5i4/sf-fargate-workshop-demo
+        IMAGE_TAG: hello-world
+      run: |
+        cd 01-hello-world
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        cd ..
+
+    - name: s3list - Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: public.ecr.aws
+        ECR_REPOSITORY: z8e9d5i4/sf-fargate-workshop-demo
+        IMAGE_TAG: s3-list
+      run: |
+        cd 02-s3-list
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        cd ..

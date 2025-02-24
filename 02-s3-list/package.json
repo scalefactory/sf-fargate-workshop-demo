@@ -6,10 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "aws-sdk": "^2.814.0",
+    "aws-sdk": "^2.1354.0",
     "cookie-parser": "~1.4.5",
-    "debug": "~4.1.1",
-    "express": "~4.17.3",
+    "debug": "~4.3.1",
+    "express": "~4.19.2",
     "hbs": "~4.1.1",
     "http-errors": "~1.8.0",
     "morgan": "~1.10.0",
